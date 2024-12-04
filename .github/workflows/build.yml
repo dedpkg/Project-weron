@@ -3,25 +3,31 @@ name: Build Minecraft Mod
 on:
   push:
     branches:
-      - master 
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
     - name: Set up JDK 8
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2
       with:
         java-version: '8'
 
-    - name: Gradle build
+    - name: Setup Gradle
+      uses: gradle/wrapper-validation-action@v1 # Правильное действие для настройки Gradle
+
+    - name: Build with Gradle
       run: ./gradlew build
 
     - name: Upload build artifact
