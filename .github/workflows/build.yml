@@ -1,4 +1,4 @@
-name: Build Minecraft Modd
+name: Build Minecraft Mod
 
 on:
   push:
