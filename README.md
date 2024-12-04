@@ -1,4 +1,4 @@
 # Project Weron
 ## yk about 2811?
 
-Simple Forge Mod
+Simple Forge MOD
